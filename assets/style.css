@@ -28,7 +28,7 @@ body{
     padding: 20px;
 }
 
-.game::before{
+/* .game::before{
     content: "SUPER SIMON";
     font-family: 'Press Start 2P', cursive;
     position: absolute;
@@ -37,7 +37,7 @@ body{
     transform: translate(-50%, -50%);
     font-size: 50px;
     pointer-events: none;
-}
+} */
 
 .game img{
     width: 200px;

@@ -7,12 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
     images = document.querySelectorAll('img');
-    //loop through each image
+
     images.forEach(function(image) {
-        //add a click event to each image
         image.addEventListener('mousedown', function() {
             image.classList.add('selected');
-            //make cursor special
             image.style.cursor = 'grabbing';
         });
         image.addEventListener('mouseup', function() {
@@ -21,15 +19,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    score = document.getElementById('score');
+    let score = document.getElementById('score');
+
     score.addEventListener('click', function() {
         startGame();
     }, { once: true });
 
-    function startGame() {
-        score.innerHTML = 0;
-        order = [];
-        clickedOrder = [];
-        currentScore = 0;
+    function randomColor() {
+        let colors = ['blue', 'red', 'green', 'yellow'];
+        let random = Math.floor(Math.random() * 4);
+        return colors[random];
     }
+    function lightUpColor(color) {
+        let element = document.getElementById(color);
+        element.classList.add('selected');
+        setTimeout(() => {
+            element.classList.remove('selected');
+        }, 200);
+    }
+
+    function lightUpColors(order) {
+        for (let i = 0; i < order.length; i++) {
+            setTimeout(() => {
+                lightUpColor(order[i]);
+            }, 1000 * i);
+        }
+    }
+
+    function startGame() {
+        let blue = document.getElementById('blue');
+        let red = document.getElementById('red');
+        let green = document.getElementById('green');
+        let yellow = document.getElementById('yellow');
+        score.innerHTML = 0;
+        let order = [];
+        let clickedOrder = [];
+        let currentScore = 0;
+        let winning = true;
+        while (winning && currentScore < 10) {
+            order.push(randomColor());
+            lightUpColors(order);
+            //add event listeners to the colors
+            currentScore++;
+
+        }
+        console.log(order);
+    }
+
 });
