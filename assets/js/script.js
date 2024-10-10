@@ -1,21 +1,35 @@
 //after the DOM has loaded
 document.addEventListener('DOMContentLoaded', function() {
+
+    function removeSelected(thisImage) {
+        setTimeout(() => {
+            thisImage.classList.remove('selected');
+        }, 100);
+    }
     images = document.querySelectorAll('img');
     //loop through each image
     images.forEach(function(image) {
         //add a click event to each image
-        image.addEventListener('click', function() {
-            //if the image is already selected, deselect it
-            if (image.classList.contains('selected')) {
-                image.classList.remove('selected');
-            } else {
-                //if the image is not selected, deselect all other images and select it
-                images.forEach(function(image) {
-                    image.classList.remove('selected');
-                });
-                image.classList.add('selected');
-                console.log("Image clicked");
-            }
+        image.addEventListener('mousedown', function() {
+            image.classList.add('selected');
+            //make cursor special
+            image.style.cursor = 'grabbing';
+        });
+        image.addEventListener('mouseup', function() {
+            removeSelected(image);
+            image.style.cursor = 'grab';
         });
     });
+
+    score = document.getElementById('score');
+    score.addEventListener('click', function() {
+        startGame();
+    }, { once: true });
+
+    function startGame() {
+        score.innerHTML = 0;
+        order = [];
+        clickedOrder = [];
+        currentScore = 0;
+    }
 });
