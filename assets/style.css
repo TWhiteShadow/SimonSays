@@ -2,3 +2,45 @@ body{
     background-color: rgb(43, 43, 43);
     color: white;
 }
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.game{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 60px;
+    grid-row-gap: 50px; 
+    max-width: 1200px;
+    width: fit-content;
+    margin: auto;
+    padding: 20px;
+}
+
+.game::before{
+    content: "SIMON";
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top:53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    pointer-events: none;
+}
+
+.game img{
+    width: 200px;
+    transition: all 0.3s ease;
+}
+
+.game img:hover{
+    cursor: pointer;
+    filter: saturate(130%);
+}
+.game img.selected{
+    filter: brightness(110%) saturate(150%);
+}
