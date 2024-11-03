@@ -1,24 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌈 SUPER SIMON 🌈</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <script src="assets/js/script.js"></script>
+    <title>Jeu du Simon</title>
+    <!-- Inclusion des polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Inclusion de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Feuille de style CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container">
 
-        <div class="game">
-            <img src="/assets/images/button-blue.png" id="blue" alt="">
-            <img src="/assets/images/button-yellow.png" id="yellow" alt="">
-            <img src="/assets/images/button-red.png" id="red" alt="">
-            <img src="/assets/images/button-green.png" id="green" alt="">
-        </div>
-        <div class="score">
-            <p id="score">Press To Start</p>
+<body>
+
+    <h1>Jeu du Simon</h1>
+    <p><i class="fas fa-level-up-alt"></i> Niveau : <span id="level">0</span></p>
+    <p><i class="fas fa-star"></i> Score : <span id="score">0</span></p>
+
+    <!-- Sélecteur de difficulté -->
+    <div id="difficulty">
+        <label for="difficulty-select">Choisissez la difficulté :</label>
+        <select id="difficulty-select">
+            <option value="1">Facile</option>
+            <option value="2">Moyen</option>
+            <option value="3">Difficile</option>
+        </select>
+    </div>
+
+    <!-- Bouton de démarrage -->
+    <button id="start-button">Commencer le jeu</button>
+
+    <!-- Conteneur du jeu -->
+    <div id="game-container">
+        <div class="color-button" id="green"></div>
+        <div class="color-button" id="red"></div>
+        <div class="color-button" id="yellow"></div>
+        <div class="color-button" id="blue"></div>
+    </div>
+
+    <!-- Affichage des meilleurs scores -->
+    <div id="high-scores">
+        <h2>Meilleurs Scores</h2>
+        <ul id="score-list"></ul>
+    </div>
+
+    <!-- Fenêtre modale pour la saisie du pseudo -->
+    <div id="pseudo-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal">&times;</span>
+            <h2>Nouveau record !</h2>
+            <p>Entrez votre pseudo :</p>
+            <input type="text" id="pseudo-input" maxlength="10" placeholder="Votre pseudo">
+            <button id="submit-pseudo">Valider</button>
         </div>
     </div>
-    </body>
+
+
+    <!-- Script JavaScript -->
+    <script src="script.js"></script>
+</body>
+
 </html>
