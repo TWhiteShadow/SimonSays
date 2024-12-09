@@ -96,15 +96,6 @@ The game now includes a **Clear High Scores** button in the high scores section.
   - Delete all saved high score data.
   - Update the high scores display to show a "No scores available" message.
 
-### Example
-
-Here’s how the Clear High Scores button appears:
-
-[Clear High Scores]
-
-
-When clicked, it resets all high scores instantly.
-
 ---
 
 Enjoy the game and have fun challenging your memory! 🎉
