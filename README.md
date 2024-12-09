@@ -11,16 +11,18 @@ A web-based version of the classic **Simon Game**, where players must remember a
 - [Difficulty Levels](#difficulty-levels)
 - [High Scores](#high-scores)
 - [Customization](#customization)
+- [Clear High Scores](#clear-high-scores)
 
 ## Features
 
-- Interactive gameplay with visual and audio feedback.
+- Interactive gameplay with visual feedback.
 - Adjustable difficulty levels (Easy, Medium, Hard).
 - Displays current score and level.
 - Tracks high scores with names and difficulty levels.
 - Responsive design for various screen sizes.
 - Local storage for preserving high scores across sessions.
 - Modal for entering a name when achieving a high score.
+- **New Feature:** Button to clear all high scores.
 
 ## Rules
 
@@ -52,9 +54,9 @@ To set up the game locally, follow these steps:
 
 1. **Start the Game:** Click on the "Start Game" button to begin.
 2. **Select Difficulty:** Choose a difficulty level from the dropdown menu:
-   - **Easy** (1 second delay)
-   - **Medium** (0.7 second delay)
-   - **Hard** (0.4 second delay)
+   - **Easy** (1-second delay)
+   - **Medium** (0.7-second delay)
+   - **Hard** (0.4-second delay)
 3. **Play the Sequence:** Watch the sequence of colors flash on the screen. Repeat the sequence by clicking on the color buttons.
 4. **Score Tracking:** Each correct sequence increases your score by 10 points and progresses you to the next level.
 5. **High Score Entry:** If you achieve a new high score, a modal will appear, prompting you to enter your name.
@@ -80,10 +82,29 @@ High scores are saved locally in the browser's storage. The top 5 scores are dis
 
 ## Customization
 
-To customize the game (e.g., modify colors, sounds, or animations), you can edit the following files:
+To customize the game (e.g., modify colors, animations, or game speed), you can edit the following files:
 
 - **Colors and Styles:** `style.css`
 - **Game Logic and Settings:** `script.js`
-- **Sound Files:** Customize sound effects by replacing audio files in the `sounds` directory.
+
+## Clear High Scores
+
+The game now includes a **Clear High Scores** button in the high scores section. 
+
+- **Purpose:** Use the button to reset all saved high scores in local storage.
+- **How to Use:** Click on the "Clear High Scores" button. This will:
+  - Delete all saved high score data.
+  - Update the high scores display to show a "No scores available" message.
+
+### Example
+
+Here’s how the Clear High Scores button appears:
+
+[Clear High Scores]
+
+
+When clicked, it resets all high scores instantly.
+
+---
 
 Enjoy the game and have fun challenging your memory! 🎉
