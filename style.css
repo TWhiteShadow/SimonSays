@@ -10,16 +10,36 @@ body {
     padding: 0;
 }
 
-#game-container {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    margin: 20px auto;
+/* Mise en page principale */
+#layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
+/* Colonne gauche : Infos */
+#info-section {
+    flex: 1;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.game-info {
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+    text-decoration: underline;
+}
+
+/* Titres et paragraphes */
 h1 {
     font-size: 3em;
-    margin-top: 20px;
+    margin: 20px 0 10px 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -28,30 +48,79 @@ p {
 }
 
 #difficulty {
-    margin: 20px;
+    margin: 20px 0;
 }
 
+/* Colonne droite : Meilleurs Scores */
+#high-scores {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+/* Meilleurs scores : Liste */
 #high-scores h2 {
+    margin: 0 0 10px 0;
     font-size: 2em;
-    margin-top: 40px;
     text-decoration: underline;
+}
+
+#high-score-difficulty-select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#score-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 #score-list li {
     font-size: 1.2em;
     margin: 5px 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
 }
 
+#clear-high-scores {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #d9534f; /* Rouge clair */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#clear-high-scores:hover {
+    background-color: #c9302c; /* Rouge plus foncé */
+}
+
+#clear-high-scores:active {
+    transform: scale(0.95);
+}
+
+/* Bouton de démarrage */
 #start-button {
     padding: 15px 30px;
     font-size: 1.5em;
-    margin: 20px;
+    margin: 20px 0;
     cursor: pointer;
     background-color: #fff;
     color: #1e3c72;
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s;
+    width: 100%;
 }
 
 #start-button:hover {
@@ -62,43 +131,75 @@ p {
     transform: scale(0.95);
 }
 
-/* Boutons de couleur modernisés */
+.info-text {
+    font-size: 1em;
+    font-style: italic;
+    font-variant: all-small-caps;
+    margin: 0;
+    text-align: center;
+}
+
+/* Conteneur du jeu */
+#game-container {
+    flex: 2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+/* Boutons de couleur */
 .color-button {
-    width: 180px;
-    height: 180px;
+    width: 140px;
+    height: 140px;
     position: absolute;
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
-.color-button:active {
-    transform: scale(0.95);
-}
-
+/* Positionnement des boutons */
 #green {
     background: linear-gradient(45deg, #00ff00, #009900);
-    top: 0;
-    left: 110px;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
 }
 
 #red {
     background: linear-gradient(45deg, #ff0000, #cc0000);
-    top: 110px;
-    left: 220px;
+    top: 50%;
+    right: 33%;
+    transform: translate(50%, -50%);
+    z-index: 2;
 }
 
 #yellow {
     background: linear-gradient(45deg, #ffff00, #cccc00);
-    top: 220px;
-    left: 110px;
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 3;
 }
 
 #blue {
     background: linear-gradient(45deg, #0000ff, #000099);
-    top: 110px;
-    left: 0;
+    top: 50%;
+    left: 33%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.color-button:active {
+    transform: scale(0.95);
 }
 
 /* Animation lors de l'état actif */
@@ -112,30 +213,22 @@ p {
     transform: scale(1.02);
 }
 
-/* Alignement central des éléments */
-#difficulty,
-#high-scores {
-    max-width: 600px;
-    margin: 0 auto;
+/* Difficulté */
+#difficulty {
+    margin: 20px 0;
+    width: 100%;
 }
 
-/* Style des listes de scores */
-#score-list {
-    list-style: none;
-    padding: 0;
-}
-
-#score-list li {
-    background-color: rgba(255, 255, 255, 0.1);
+#difficulty-select {
+    width: 100%;
     padding: 10px;
-    margin: 5px 0;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 /* Styles pour la modale */
 .modal {
     display: none;
-    /* Masquée par défaut */
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -155,6 +248,7 @@ p {
     max-width: 400px;
     text-align: center;
     border-radius: 10px;
+    color: #000;
 }
 
 #close-modal {
@@ -185,16 +279,15 @@ p {
     cursor: pointer;
 }
 
+/* Animation de flash */
 @keyframes flash {
     0% {
         opacity: 1;
     }
-
     50% {
         opacity: 0.5;
         box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
     }
-
     100% {
         opacity: 1;
     }
@@ -204,7 +297,18 @@ p {
     animation: flash 0.5s;
 }
 
+/* Responsive Design */
 @media (max-width: 600px) {
+    #layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #info-section, #high-scores {
+        width: 100%;
+        max-width: 300px;
+    }
+
     #game-container {
         width: 300px;
         height: 300px;
