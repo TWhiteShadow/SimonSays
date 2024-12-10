@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simon Says</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Simon Says</h1>
+    <p class="info-text">By Florian Sauvage & Raphael Toursel</p>
+
+    <div id="layout">
+        <!-- Info column -->
+        <div id="info-section">
+            <h2 class="game-info">Game infos</h2>
+            <p><i class="fas fa-level-up-alt"></i> Level : <span id="level">0</span></p>
+            <p><i class="fas fa-star"></i> Score : <span id="score">0</span></p>
+
+            <div id="difficulty">
+                <label for="difficulty-select">Choose your difficulty :</label>
+                <select id="difficulty-select">
+                    <option value="1">Easy</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Hard</option>
+                </select>
+            </div>
+
+            <button id="start-button">Start</button>
+        </div>
+
+        <!-- Game column -->
+        <div id="game-container">
+            <div class="color-button" id="green"></div>
+            <div class="color-button" id="red"></div>
+            <div class="color-button" id="yellow"></div>
+            <div class="color-button" id="blue"></div>
+        </div>
+
+        <!-- HighScore column -->
+        <div id="high-scores">
+            <h2>Meilleurs Scores</h2>
+            <div>
+                <select id="high-score-difficulty-select">
+                    <option value="all">All</option>
+                    <option value="1">Easy</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Hard</option>
+                </select>
+            </div>
+            <ul id="score-list"></ul>
+            <button id="clear-high-scores">Clear High Scores</button>
+        </div>        
+    </div>
+
+    <!-- Username modal -->
+    <div id="pseudo-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal">&times;</span>
+            <h2>New record !</h2>
+            <p>Enter your gametag :</p>
+            <input type="text" id="pseudo-input" maxlength="10" placeholder="Votre pseudo">
+            <button id="submit-pseudo">Submit</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
