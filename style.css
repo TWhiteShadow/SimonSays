@@ -173,7 +173,7 @@ p {
 /* Positionnement des boutons */
 #green {
     background: linear-gradient(45deg, #00ff00, #009900);
-    top: 30%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
@@ -182,14 +182,14 @@ p {
 #red {
     background: linear-gradient(45deg, #ff0000, #cc0000);
     top: 50%;
-    right: 33%;
+    right: 23%;
     transform: translate(50%, -50%);
     z-index: 2;
 }
 
 #yellow {
     background: linear-gradient(45deg, #ffff00, #cccc00);
-    bottom: 30%;
+    bottom: 20%;
     left: 50%;
     transform: translate(-50%, 50%);
     z-index: 3;
@@ -198,7 +198,7 @@ p {
 #blue {
     background: linear-gradient(45deg, #0000ff, #000099);
     top: 50%;
-    left: 33%;
+    left: 23%;
     transform: translate(-50%, -50%);
     z-index: 2;
 }
@@ -315,8 +315,8 @@ p {
     }
 
     #game-container {
-        width: 300px;
-        height: 300px;
+        width: 340px;
+        min-height: 300px;
     }
 
     .color-button {
@@ -325,23 +325,19 @@ p {
     }
 
     #green {
-        top: 0;
-        left: 85px;
+        top:20%;
     }
 
     #red {
-        top: 85px;
-        left: 170px;
+        right: 23%;
     }
 
     #yellow {
-        top: 170px;
-        left: 85px;
+        bottom: 20%;
     }
 
     #blue {
-        top: 85px;
-        left: 0;
+        left: 23%;
     }
 
     h1 {
